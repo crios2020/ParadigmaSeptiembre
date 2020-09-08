@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 //declaración de clase
 class Auto{
 	//atributos
@@ -7,13 +9,40 @@ class Auto{
 	int velocidad;
 	
 	//métodos
-	void acelerar(){
+	void acelerar(){									//acelerar
 		velocidad=velocidad+10;
+	}
+	
+	void acelerar(int kilometros){						//acelerarInt
+		velocidad=velocidad+kilometros;
+	}
+	
+	void acelerar(int kilometros, boolean tieneNitro){	//acelerarIntBoolean
+		if(tieneNitro == false){
+			acelerar(kilometros);		//llamada de métodos dentro de la misma clase
+		} else {
+			acelerar(kilometros*2);
+		}
+	}
+	
+	void acelerar(int r,int s){
+	}
+	
+	void acelerar(boolean c, int x){
 	}
 	
 	void frenar(){
 		velocidad=velocidad-10;
 	}
+	
+	void imprimirVelocidad(){
+		System.out.println(velocidad);
+	}
+	
+	int obtenerVelocidad(){		//getVelocidad()
+		return velocidad;
+	}
+	
 }//end class
 
 //declaración de clase Programa
@@ -51,5 +80,17 @@ public class Paradigma{
 		
 		System.out.println(auto2.marca+" "+auto2.modelo+" "
 				+auto2.color+" "+auto2.velocidad);
+		
+		System.out.println("*******************************");
+		
+		auto.acelerar();
+		auto.acelerar(35);
+		auto.acelerar(12,true);
+		
+		auto2.imprimirVelocidad();	
+		System.out.println(auto2.obtenerVelocidad());
+		
+		//JOptionPane.showMessageDialog(null,"Velocidad: "+auto2.obtenerVelocidad());		
+				
 	}
 }//end class
